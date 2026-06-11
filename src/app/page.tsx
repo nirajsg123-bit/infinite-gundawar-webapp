@@ -67,6 +67,9 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-3xl">
           <AnimatedSection>
+            <div className="mb-8">
+              <img src="/logo-full.png" alt="Infinite Gundawar Business Private Limited" className="h-20 md:h-24 object-contain drop-shadow-lg" />
+            </div>
             <span className="inline-block px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[#d4a843] text-sm font-medium mb-6 backdrop-blur-sm">
               Welcome to Infinite Gundawar Business
             </span>

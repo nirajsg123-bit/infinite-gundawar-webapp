@@ -32,6 +32,9 @@ export default function Navbar() {
     { href: '/happiness', label: '🧘 Happiness' },
     { href: '/ai-tools', label: '🤖 AI Tools' },
     { href: '/career', label: '💼 Career' },
+    { href: '/data-scraper', label: '🔍 Data Scraper' },
+    { href: '/phone-scraper', label: '📞 Phone Scraper' },
+    { href: '/email-sender', label: '📧 Email Sender' },
   ]
 
   return (
@@ -40,18 +43,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center space-x-3">
             <div className={`w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden shadow-lg ${scrolled || !isHome ? 'bg-gradient-to-br from-[#1e3a5f] to-[#2c5282]' : 'bg-white/10 backdrop-blur-sm border border-white/20'}`}>
-              <svg viewBox="0 0 240 240" className="w-9 h-9">
-                <defs>
-                  <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#d4a843"/>
-                    <stop offset="100%" stopColor="#ecc94b"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="120" cy="120" r="110" fill="none" stroke="url(#navGold)" strokeWidth="6"/>
-                <text x="120" y="105" textAnchor="middle" fill="url(#navGold)" fontSize="48" fontWeight="bold" fontFamily="Arial">IG</text>
-                <text x="120" y="145" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="Arial">INFINITE</text>
-                <text x="120" y="165" textAnchor="middle" fill="#d4a843" fontSize="10" fontFamily="Arial">GUNDAWAR</text>
-              </svg>
+              <img src="/logo.png" alt="Infinite Gundawar" className="w-9 h-9 object-contain" />
             </div>
             <div className="hidden sm:block">
               <span className={`font-bold text-lg block leading-tight ${scrolled || !isHome ? 'text-[#1e3a5f]' : 'text-white'}`}>

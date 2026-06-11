@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-[#d4a843] flex items-center justify-center font-bold text-[#1e3a5f] text-lg">IG</div>
+              <img src="/logo.png" alt="Infinite Gundawar" className="h-10 object-contain" />
               <div>
                 <h3 className="font-bold text-lg">Infinite Gundawar</h3>
                 <p className="text-xs text-gray-400">Business Private Limited</p>

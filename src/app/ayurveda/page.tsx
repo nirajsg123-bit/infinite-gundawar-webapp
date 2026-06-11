@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import AIDoctorBot from '@/components/AIDoctorBot'
+import AyurvedaDoctorScraper from '@/components/AyurvedaDoctorScraper'
 
 /* ─── Massive Herbs Database ─── */
 const herbs = [
@@ -482,6 +483,7 @@ export default function AyurvedaPage() {
         <BooksSection />
         <HealthTipsSection />
         <ConsultationForm />
+        <AyurvedaDoctorScraper />
       </div>
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 py-4">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4">
