@@ -6,7 +6,7 @@ export interface DiseaseEntry {
   name: string
   sanskrit: string
   category: 'virus' | 'bacterial' | 'chronic' | 'acute' | 'mental' | 'skin' | 'digestive' | 'respiratory' | 'cardiac' | 'neurological' | 'musculoskeletal' | 'reproductive' | 'pediatric' | 'geriatric' | 'autoimmune' | 'metabolic' | 'infectious' | 'genetic' | 'lifestyle'
-  severity: 'mild' | 'moderate' | 'severe' | 'critical'
+  severity: 'mild' | 'moderate' | 'severe' | 'critical' | 'chronic'
   description: string
   symptoms: string[]
   causes: string[]
@@ -157,7 +157,7 @@ export const DISEASE_DATABASE: DiseaseEntry[] = [
     addedDate: '2026-06-11'
   },
   {
-    id: 'diabetes', name: 'Diabetes (Madhumeha)', sanskrit: 'मधुमेह', category: 'metabolic', severity: 'chronic',
+    id: 'diabetes', name: 'Diabetes (Madhumeha)', sanskrit: 'मधुमेह', category: 'metabolic', severity: 'severe',
     description: 'A metabolic disorder characterized by high blood sugar levels. Known as Madhumeha in Ayurveda - one of the 20 types of Prameha.',
     symptoms: ['Excessive thirst', 'Frequent urination', 'Increased hunger', 'Weight loss', 'Fatigue', 'Blurred vision', 'Slow wound healing', 'Numbness in hands/feet'],
     causes: ['Insulin resistance', 'Pancreatic dysfunction', 'Genetic factors', 'Obesity', 'Sedentary lifestyle', 'Poor diet', 'Stress'],

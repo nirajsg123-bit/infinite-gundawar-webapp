@@ -83,7 +83,7 @@ export const SPECIAL_OFFERS = [
 ]
 
 // ─── Get Today's Content ───
-export function getTodaysTestimonials(): typeof TESTIMONIALS {
+export function getTodaysTestimonials(): (typeof TESTIMONIALS)[number][] {
   const today = new Date()
   const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000)
   const startIdx = (dayOfYear * 3) % TESTIMONIALS.length
@@ -94,13 +94,13 @@ export function getTodaysTestimonials(): typeof TESTIMONIALS {
   return result
 }
 
-export function getTodaysTip(): typeof DAILY_TIPS {
+export function getTodaysTip(): (typeof DAILY_TIPS)[number] {
   const today = new Date()
   const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000)
   return DAILY_TIPS[dayOfYear % DAILY_TIPS.length]
 }
 
-export function getTodaysOffer(): typeof SPECIAL_OFFERS {
+export function getTodaysOffer(): (typeof SPECIAL_OFFERS)[number] {
   const today = new Date()
   const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000)
   return SPECIAL_OFFERS[dayOfYear % SPECIAL_OFFERS.length]

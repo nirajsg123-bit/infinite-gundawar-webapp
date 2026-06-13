@@ -156,8 +156,8 @@ export function FreeToolsSection() {
 
 // ─── Daily Tip & Offer ───
 export function DailyTipOffer() {
-  const tip = getTodaysTip()
-  const offer = getTodaysOffer()
+  const tip = getTodaysTip() as any
+  const offer = getTodaysOffer() as any
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

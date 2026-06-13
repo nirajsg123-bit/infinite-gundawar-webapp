@@ -246,7 +246,7 @@ export async function POST(request: NextRequest) {
     const excelBuffer = generateExcel(uniqueLeads.slice(0, maxLeads))
 
     // Return Excel file
-    return new Response(excelBuffer, {
+    return new Response(excelBuffer as any, {
       headers: {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         'Content-Disposition': `attachment; filename=leads_${new Date().toISOString().split('T')[0]}_${uniqueLeads.length}.xlsx`,

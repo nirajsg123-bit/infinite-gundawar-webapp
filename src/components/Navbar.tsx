@@ -32,6 +32,7 @@ export default function Navbar() {
     { href: '/happiness', label: '🧘 Happiness' },
     { href: '/ai-tools', label: '🤖 AI Tools' },
     { href: '/career', label: '💼 Career' },
+    { href: '/property-finder', label: '🏠 Property Finder' },
     { href: '/data-scraper', label: '🔍 Data Scraper' },
     { href: '/phone-scraper', label: '📞 Phone Scraper' },
     { href: '/email-sender', label: '📧 Email Sender' },
