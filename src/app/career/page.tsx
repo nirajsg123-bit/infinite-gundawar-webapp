@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -39,7 +40,7 @@ export default function CareerPage() {
     return matchCat && matchSearch
   })
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900">
       <Navbar />
       <section className="relative pt-28 pb-16 overflow-hidden">
@@ -152,7 +153,7 @@ export default function CareerPage() {
 
         {/* Free Call CTA */}
         <div className="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-white mb-2">Ready to Start Your Career Journey?</h3>
+          <h3 className="text-2xl font-bold text-white mb-2">Ready to Start Your Career Path?</h3>
           <p className="text-white/80 mb-6">Get personalized guidance, resume reviews, and interview prep — completely free!</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:+919****1665" className="px-8 py-4 bg-white text-indigo-700 font-bold rounded-xl hover:shadow-lg flex items-center gap-2">📞 Free Call: +91 94043 11665</a>
@@ -162,5 +163,7 @@ export default function CareerPage() {
       </div>
       <Footer />
     </div>
+    <GoalModeFeatures page="career" />
+  </>
   )
 }

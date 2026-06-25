@@ -10,85 +10,152 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   const isHome = pathname === '/'
+
+  const pillarLinks = [
+    { href: '/health', label: '🏥 Health', highlight: true },
+    { href: '/investment', label: '💰 Wealth', highlight: true },
+    { href: '/happiness-hub', label: '🧘 Happiness', highlight: true },
+    { href: '/education', label: '📚 Education', highlight: true },
+    { href: '/business', label: '🏢 Business', highlight: true },
+    { href: '/finance', label: '📊 Finance', highlight: true },
+  ]
+
+  const toolLinks = [
+    { href: '/ai-tools', label: '🤖 AI Tools' },
+    { href: '/trending-bots', label: '🔥 Trending Bots' },
+    { href: '/career', label: '💼 Career' },
+    { href: '/property-finder', label: '🏠 Property' },
+    { href: '/data-scraper', label: '🔍 Scraper' },
+    { href: '/email-sender', label: '📧 Email' },
+    { href: '/marketing', label: '📣 Marketing' },
+    { href: '/whatsapp', label: '💬 WhatsApp' },
+    { href: '/free-business-kit', label: '📦 Free Kit' },
+  ]
 
   const navLinks = [
     ...(isHome
       ? [
           { href: '#home', label: 'Home' },
-          { href: '#about', label: 'About' },
           { href: '#services', label: 'Services' },
-          { href: '#portfolio', label: 'Portfolio' },
-          { href: '#testimonials', label: 'Testimonials' },
+          { href: '#about', label: 'About' },
           { href: '#contact', label: 'Contact' },
         ]
       : []),
-    { href: '/finance', label: '📊 Finance' },
-    { href: '/ayurveda', label: '🌿 Ayurveda' },
-    { href: '/happiness', label: '🧘 Happiness' },
-    { href: '/ai-tools', label: '🤖 AI Tools' },
-    { href: '/career', label: '💼 Career' },
-    { href: '/property-finder', label: '🏠 Property Finder' },
-    { href: '/data-scraper', label: '🔍 Data Scraper' },
-    { href: '/phone-scraper', label: '📞 Phone Scraper' },
-    { href: '/email-sender', label: '📧 Email Sender' },
+    ...pillarLinks,
+    ...toolLinks,
   ]
 
+  const isActive = (href: string) => {
+    if (href.startsWith('#')) return false
+    return pathname === href
+  }
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white/90 nav-blur shadow-lg' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className={`w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden shadow-lg ${scrolled || !isHome ? 'bg-gradient-to-br from-[#1e3a5f] to-[#2c5282]' : 'bg-white/10 backdrop-blur-sm border border-white/20'}`}>
-              <img src="/logo.png" alt="Infinite Gundawar" className="w-9 h-9 object-contain" />
-            </div>
-            <div className="hidden sm:block">
-              <span className={`font-bold text-lg block leading-tight ${scrolled || !isHome ? 'text-[#1e3a5f]' : 'text-white'}`}>
-                Infinite Gundawar
-              </span>
-              <span className={`text-[10px] font-medium tracking-wider uppercase ${scrolled || !isHome ? 'text-[#d4a843]' : 'text-white/70'}`}>
-                Business Private Limited
-              </span>
-            </div>
-          </Link>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white/95 nav-blur shadow-lg' : 'bg-transparent'}`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <Link href="/" className="flex items-center space-x-3" aria-label="Infinite Gundawar Home">
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden shadow-lg ${scrolled || !isHome ? 'bg-gradient-to-br from-[#1e3a5f] to-[#2c5282]' : 'bg-white/10 backdrop-blur-sm border border-white/20'}`}>
+                <img src="/logo.png" alt="Infinite Gundawar" className="w-9 h-9 object-contain" />
+              </div>
+              <div className="hidden sm:block">
+                <span className={`font-bold text-lg block leading-tight ${scrolled || !isHome ? 'text-[#1e3a5f]' : 'text-white'}`}>
+                  Infinite Gundawar
+                </span>
+                <span className={`text-[10px] font-medium tracking-wider uppercase ${scrolled || !isHome ? 'text-[#d4a843]' : 'text-white/70'}`}>
+                  Business Private Limited
+                </span>
+              </div>
+            </Link>
 
-          <div className="hidden lg:flex items-center space-x-6">
-            {navLinks.map(link => (
-              <Link key={link.href} href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[#d4a843] ${scrolled || !isHome ? 'text-gray-700' : 'text-white/90'}`}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
+            {/* Desktop nav */}
+            <div className="hidden lg:flex items-center space-x-5">
+              {navLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-[#d4a843] ${isActive(link.href) ? 'text-[#d4a843]' : scrolled || !isHome ? 'text-gray-700' : 'text-white/90'}`}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-          <button onClick={() => setMenuOpen(!menuOpen)}
-            className={`lg:hidden p-2 rounded-lg ${scrolled || !isHome ? 'text-[#1e3a5f]' : 'text-white'}`}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+            >
               {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="w-6 h-6 text-[#1e3a5f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg className={`w-6 h-6 ${scrolled || !isHome ? 'text-[#1e3a5f]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               )}
-            </svg>
-          </button>
-        </div>
-
-        {menuOpen && (
-          <div className="lg:hidden bg-white rounded-xl shadow-xl p-4 mt-2">
-            {navLinks.map(link => (
-              <Link key={link.href} href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-3 px-4 text-gray-700 hover:text-[#d4a843] hover:bg-gray-50 rounded-lg font-medium">
-                {link.label}
-              </Link>
-            ))}
+            </button>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      </nav>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setMenuOpen(false)} />
+          <div className="absolute top-16 right-0 left-0 bg-white shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="px-4 py-4 space-y-1">
+              <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Pillars</div>
+              {pillarLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive(link.href) ? 'bg-[#d4a843]/10 text-[#d4a843]' : 'text-gray-700 hover:bg-gray-50'}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="px-3 py-2 mt-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tools</div>
+              {toolLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive(link.href) ? 'bg-[#d4a843]/10 text-[#d4a843]' : 'text-gray-700 hover:bg-gray-50'}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   )
 }

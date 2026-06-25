@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 
 import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
@@ -9,7 +10,7 @@ const quotes = [
   { text: 'The purpose of our lives is to be happy.', author: 'Dalai Lama', category: 'Purpose' },
   { text: 'Happiness depends upon ourselves.', author: 'Aristotle', category: 'Philosophy' },
   { text: 'The secret of happiness is not in doing what one likes, but in liking what one does.', author: 'James M. Barrie', perspective: 'Mindset' },
-  { text: 'Happiness is a direction, not a destination.', author: 'Unknown', category: 'Journey' },
+  { text: 'Happiness is a direction, not a destination.', author: 'Unknown', category: 'Philosophy' },
   { text: 'The mind is everything. What you think you become.', author: 'Buddha', category: 'Mindfulness' },
   { text: 'Peace comes from within. Do not seek it without.', author: 'Buddha', category: 'Inner Peace' },
   { text: 'He who has health has hope; and he who has hope has everything.', author: 'Arabian Proverb', category: 'Health' },
@@ -66,7 +67,7 @@ export default function HappinessPage() {
     }, 4000)
   }
 
-  return (
+  return (<>
     <div className="min-h-screen bg-white">
       <Navbar />
 
@@ -90,7 +91,7 @@ export default function HappinessPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#practices" className="px-8 py-4 bg-white text-purple-700 font-semibold rounded-xl hover:shadow-lg transition-all">
-                Start Your Journey
+                Get Started
               </a>
               <a href="#breathing" onClick={startBreathing} className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all">
                 🧘 Quick Breathing Exercise
@@ -244,7 +245,7 @@ export default function HappinessPage() {
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Start Your Happiness Journey Today</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Start Your Happiness Plan Today</h2>
           <p className="text-white/80 mb-8">Join thousands who have transformed their lives with our Ayurvedic and wellness programs</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="/ayurveda" className="px-8 py-4 bg-white text-purple-700 font-semibold rounded-xl hover:shadow-lg transition-all">
@@ -259,5 +260,7 @@ export default function HappinessPage() {
 
       <Footer />
     </div>
+    <GoalModeFeatures page="happiness" />
+  </>
   )
 }

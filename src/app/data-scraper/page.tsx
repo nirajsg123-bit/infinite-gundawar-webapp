@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 
 import { useState, useCallback, useRef } from 'react'
 import Navbar from '@/components/Navbar'
@@ -205,7 +206,7 @@ export default function ScraperDashboard() {
     { id: 'updates', label: '🆕 Updates', icon: '🆕' },
   ]
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
 
@@ -589,5 +590,7 @@ export default function ScraperDashboard() {
 
       <Footer />
     </div>
+    <GoalModeFeatures page="data-scraper" />
+  </>
   )
 }

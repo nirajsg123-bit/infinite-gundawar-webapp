@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 import { useState, useRef, useCallback } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -306,7 +307,7 @@ export default function PropertyFinderPage() {
     URL.revokeObjectURL(url)
   }
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
 
@@ -512,5 +513,7 @@ export default function PropertyFinderPage() {
       </div>
       <Footer />
     </div>
+    <GoalModeFeatures page="property-finder" />
+  </>
   )
 }

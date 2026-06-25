@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 import { useState, useRef, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -457,7 +458,7 @@ function ConsultationForm() {
 
 /* ─── Main Page ─── */
 export default function AyurvedaPage() {
-  return (
+  return (<>
     <div className="min-h-screen bg-white">
       <Navbar />
       <section className="relative pt-20 overflow-hidden">
@@ -495,5 +496,7 @@ export default function AyurvedaPage() {
       <AIHerbFinderBot />
       <Footer />
     </div>
+    <GoalModeFeatures page="ayurveda" />
+  </>
   )
 }

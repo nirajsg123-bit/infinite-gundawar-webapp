@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 
 import { useState, useEffect, useCallback } from 'react'
 import Navbar from '@/components/Navbar'
@@ -368,7 +369,7 @@ export default function FinancePage() {
     { id: 'news' as const, label: '📰 Business News', count: null },
   ]
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
@@ -558,5 +559,7 @@ export default function FinancePage() {
 
       <Footer />
     </div>
+    <GoalModeFeatures page="finance" />
+  </>
   )
 }

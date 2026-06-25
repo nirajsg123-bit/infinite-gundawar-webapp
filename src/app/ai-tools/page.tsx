@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -58,7 +59,7 @@ export default function AIToolsPage() {
     return matchCat && matchSearch
   })
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <Navbar />
       <section className="relative pt-28 pb-16 overflow-hidden">
@@ -154,5 +155,7 @@ export default function AIToolsPage() {
       </div>
       <Footer />
     </div>
+    <GoalModeFeatures page="ai-tools" />
+  </>
   )
 }

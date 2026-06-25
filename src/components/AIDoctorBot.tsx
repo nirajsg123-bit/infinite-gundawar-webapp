@@ -144,7 +144,7 @@ export default function AIDoctorBot() {
     const msg: Message = {
       id: Date.now(),
       role: 'bot',
-      text: `🙏 Namaste **${patient.name}**! I've analyzed your symptoms. Here's your preliminary Ayurvedic assessment:\n\n---\n\n**🔍 Dosha Analysis:**\n${diag.dosha}\n\n**📋 Assessment:**\n${diag.diagnosis}\n\n**🌿 Herbal Recommendations:**\n${diag.herbs}\n\n**🍽️ Diet Plan:**\n${diag.diet}\n\n**🧘 Lifestyle Changes:**\n${diag.lifestyle}\n\n**⚠️ Important:**\n${diag.urgency}\n\n---\n\n*Note: This is an AI-generated preliminary assessment. For a definitive diagnosis and personalized treatment plan, please consult our Ayurvedic doctor in person or via video call.*\n\n📞 **Book Consultation:** +91 94043 11665\n\nFeel free to ask me any follow-up questions!`,
+      text: `🙏 Namaste **${patient.name}**! I've analyzed your symptoms. Here's your preliminary Ayurvedic assessment:\n\n---\n\n**🔍 Dosha Analysis:**\n${diag.dosha}\n\n**📋 Assessment:**\n${diag.diagnosis}\n\n**🌿 Herbal Recommendations:**\n${diag.herbs}\n\n**🍽️ Diet Plan:**\n${diag.diet}\n\n**🧘 Lifestyle Changes:**\n${diag.lifestyle}\n\n**⚠️ Important:**\n${diag.urgency}\n\n---\n\n*Note: This is an AI-generated preliminary assessment. For a definitive diagnosis and personalized treatment plan, please consult our Ayurvedic doctor in person or via video call.*\n\n📞 **Book Consultation:** +91 79721 40672\n\nFeel free to ask me any follow-up questions!`,
       timestamp: new Date()
     }
     setMessages([msg])
@@ -162,15 +162,15 @@ export default function AIDoctorBot() {
       const lower = text.toLowerCase()
       let response = ''
       if (lower.includes('diet') || lower.includes('food') || lower.includes('eat')) {
-        response = `Great question about diet! 🍽️\n\n${diagnosis?.diet || 'Please complete the intake form first for personalized diet advice.'}\n\n📞 For a detailed diet plan, consult: +91 94043 11665`
+        response = `Great question about diet! 🍽️\n\n${diagnosis?.diet || 'Please complete the intake form first for personalized diet advice.'}\n\n📞 For a detailed diet plan, consult: +91 79721 40672`
       } else if (lower.includes('herb') || lower.includes('medicine') || lower.includes('remedy')) {
-        response = `Here are the herbal recommendations: 🌿\n\n${diagnosis?.herbs || 'Please complete the intake form first for personalized herbal recommendations.'}\n\n⚠️ Always consult before starting new herbs. 📞 +91 94043 11665`
+        response = `Here are the herbal recommendations: 🌿\n\n${diagnosis?.herbs || 'Please complete the intake form first for personalized herbal recommendations.'}\n\n⚠️ Always consult before starting new herbs. 📞 +91 79721 40672`
       } else if (lower.includes('dosha')) {
         response = `🔍 **Your Dosha Analysis:**\n\n${diagnosis?.dosha || 'Please complete the intake form first.'}\n\nUnderstanding your dosha imbalance is the first step to healing. Would you like specific remedies for your dosha type?`
       } else if (lower.includes('book') || lower.includes('appointment') || lower.includes('consult')) {
-        response = `📞 **Book Your Consultation:**\n\n🆓 **Free Call:** +91 94043 11665\n📧 Email: talenthebhai123@gmail.com\n\n**Available Consultations:**\n• In-Person (Maharashtra)\n• Video Call (Pan India)\n• Phone Call (Free)\n\nOur Ayurvedic doctor will provide a comprehensive Prakriti (constitution) analysis and personalized treatment plan.`
+        response = `📞 **Book Your Consultation:**\n\n🆓 **Free Call:** +91 79721 40672\n📧 Email: talenthebhai123@gmail.com\n\n**Available Consultations:**\n• In-Person (Maharashtra)\n• Video Call (Pan India)\n• Phone Call (Free)\n\nOur Ayurvedic doctor will provide a comprehensive Prakriti (constitution) analysis and personalized treatment plan.`
       } else {
-        response = `Thank you for your question! Based on your profile, here's my advice:\n\n${diagnosis?.lifestyle || 'For personalized advice, please complete the intake form.'}\n\nFor a detailed consultation with our Ayurvedic doctor:\n🆓 **Call: +91 94043 11665**`
+        response = `Thank you for your question! Based on your profile, here's my advice:\n\n${diagnosis?.lifestyle || 'For personalized advice, please complete the intake form.'}\n\nFor a detailed consultation with our Ayurvedic doctor:\n🆓 **Call: +91 79721 40672**`
       }
       const botMsg: Message = { id: Date.now() + 1, role: 'bot', text: response, timestamp: new Date() }
       setMessages(prev => [...prev, botMsg])
@@ -428,7 +428,7 @@ export default function AIDoctorBot() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
             </button>
           </div>
-          <p className="text-[10px] text-gray-400 text-center mt-2">🤖 AI-generated advice. For treatment, consult our doctor. 📞 +91 94043 11665</p>
+          <p className="text-[10px] text-gray-400 text-center mt-2">🤖 AI-generated advice. For treatment, consult our doctor. 📞 +91 79721 40672</p>
         </form>
       )}
     </div>

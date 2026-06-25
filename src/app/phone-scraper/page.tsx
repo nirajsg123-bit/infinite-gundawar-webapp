@@ -1,4 +1,5 @@
 'use client'
+import GoalModeFeatures from '@/components/GoalModeFeatures'
 
 import { useState, useRef, useCallback } from 'react'
 import Navbar from '@/components/Navbar'
@@ -188,7 +189,7 @@ export default function PhoneScraperPage() {
     return '📞'
   }
 
-  return (
+  return (<>
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
 
@@ -446,5 +447,7 @@ export default function PhoneScraperPage() {
 
       <Footer />
     </div>
+    <GoalModeFeatures page="phone-scraper" />
+  </>
   )
 }
