@@ -672,6 +672,51 @@ function Contact() {
   )
 }
 
+/* ─── Our Journey So Far ─── */
+function Journey() {
+  const milestones = [
+    { title: 'Company Founded', desc: 'Incorporated under Companies Act, 2013 in Maharashtra, India.' },
+    { title: 'Infrastructure Launch', desc: 'Launched infrastructure and real estate division with first project.' },
+    { title: 'Global Trading', desc: 'Expanded into import/export trading across multiple sectors.' },
+    { title: 'Education & Digital', desc: 'Started coaching, education, and digital marketing services.' },
+    { title: 'AI & Innovation', desc: 'Launched AI tools, career hub, and innovation lab initiatives.' },
+    { title: 'Life Dashboard', desc: 'Introduced life dashboard for health, wealth, and happiness.' },
+  ]
+
+  return (
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a] mb-4">Our Journey So Far</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">Key milestones in our growth story.</p>
+        </AnimatedSection>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#d4a843]/30 md:-translate-x-1/2" />
+
+          <div className="space-y-12">
+            {milestones.map((m, i) => (
+              <AnimatedSection key={m.title} delay={i * 100}>
+                <div className={`relative flex flex-col md:flex-row items-start md:items-center gap-4 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                  {/* Dot */}
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#d4a843] rounded-full border-4 border-white shadow -translate-x-1/2 mt-1 md:mt-0" />
+
+                  {/* Content */}
+                  <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                    <h4 className="text-lg font-bold text-[#0f172a] mb-1">{m.title}</h4>
+                    <p className="text-gray-600 text-sm">{m.desc}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── Main Page ─── */
 export default function Home() {
   return (
@@ -679,6 +724,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Journey />
       <Services />
       <AIDesignStudio />
       <Portfolio />
